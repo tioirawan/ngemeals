@@ -1,0 +1,16 @@
+#search-input,
+#search-button {
+    border: none;
+    box-shadow: 0 5px 10px rgba(154, 160, 185, .025), 0 15px 40px rgba(166, 173, 201, .2);
+    margin: 0 0.5em;
+    border-radius: 99999px;
+    font-size: 1em;
+}
+
+#search-input {
+    padding: 1em 1.2em 0.8em 1.2em;
+}
+
+#search-button {
+    padding: 0.8em;
+}

@@ -2,21 +2,21 @@
 #meal-masonry {
     padding: 1.5em;
     margin: 0 auto;
-    columns: 5;
+    columns: 4;
     column-gap: 30px;
 }
 
 @media (max-width: 1200px) {
     #meal-masonry {
-        columns: 4;
-    }
-}
-
-@media (max-width: 900px) {
-    #meal-masonry {
         columns: 3;
     }
 }
+
+/* @media (max-width: 900px) {
+    #meal-masonry {
+        columns: 3;
+    }
+} */
 
 @media (max-width: 768px) {
     #meal-masonry {

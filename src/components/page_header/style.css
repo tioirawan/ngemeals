@@ -1,0 +1,28 @@
+#page-header {
+    height: 70px;
+    display: flex;
+    padding: 2.5em;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: white;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+#actions {
+    display: flex;
+}
+
+.shadow {
+    box-shadow: 0 5px 10px rgba(154, 160, 185, .025), 0 15px 40px rgba(166, 173, 201, .2);
+}
+
+h1 {
+    margin: 0;
+    /* color: white; */
+    font-size: 2rem;
+}

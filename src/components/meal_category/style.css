@@ -1,0 +1,46 @@
+#meal-category {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#meal-category button {
+    margin: 0 0.5em;
+    padding: 0.8em 1em;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(154, 160, 185, .025), 0 15px 40px rgba(166, 173, 201, .2);
+    border-radius: 99999px;
+    font-size: 1em;
+    color: white;
+    transition: all 0.2s ease-in-out;
+    font-weight: bold;
+    width: 100px;
+    background-color: #636e72;
+}
+ 
+#meal-category button:hover {
+    transform: scale(1.1);
+}
+
+#beef {
+    background-color: #ff7675 !important;
+}
+/*
+#breakfast {
+    background-color: #fdcb6e;
+}
+
+#chicken {
+    background-color: #636e72;
+}
+
+#dessert {
+    background-color: #00cec9;
+}
+
+#vegan {
+    background-color: #00b894;
+}
+ */

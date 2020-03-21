@@ -1,4 +1,16 @@
 #main-view {
     text-align: center;
+    color: #2f3542;
 }
 
+h1 {
+    font-size: 3.5em;
+    font-weight: lighter;
+    text-align: left;
+    margin: 1rem;
+}
+
+main {
+    max-width: 1200px;
+    margin: 120px auto;
+}

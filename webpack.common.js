@@ -39,6 +39,12 @@ module.exports = {
                 test: /\.html$/i,
                 loader: 'html-loader',
             },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader',
+                ],
+            },
         ]
     },
     resolve: {
@@ -47,6 +53,7 @@ module.exports = {
             Components: path.resolve(__dirname, 'src/components'),
             Styles: path.resolve(__dirname, 'src/styles'),
             Utils: path.resolve(__dirname, 'src/utils'),
+            Assets: path.resolve(__dirname, 'src/assets'),
         }
     }
 }
