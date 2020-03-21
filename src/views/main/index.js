@@ -1,3 +1,5 @@
+import store from "Store/reducer.js";
+
 import html from "./template.html";
 import style from "./style.css";
 
@@ -12,6 +14,12 @@ class MainView extends HTMLElement {
         this.attachShadow({ mode: 'open' });
 
         this.shadowRoot.appendChild(template.content.cloneNode(true))
+    }
+
+    connectedCallback() {
+        store.subscribe(() => {
+            this.shadowRoot.getElementById("title-category").innerText = store.getState().category
+        })
     }
 }
 

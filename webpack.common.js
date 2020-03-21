@@ -49,6 +49,8 @@ module.exports = {
     },
     resolve: {
         alias: {
+            Services: path.resolve(__dirname, 'src/services'),
+            Store: path.resolve(__dirname, 'src/store'),
             Views: path.resolve(__dirname, 'src/views'),
             Components: path.resolve(__dirname, 'src/components'),
             Styles: path.resolve(__dirname, 'src/styles'),

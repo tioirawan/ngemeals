@@ -5,7 +5,7 @@ import componentTemplate from 'Utils/componentTemplate.js'
 
 const template = componentTemplate(html, style);
 
-class PageHeader extends HTMLElement {
+class PageHeader extends HTMLElement {    
     constructor() {
         super();
 
