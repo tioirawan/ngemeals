@@ -5,7 +5,7 @@ import componentTemplate from 'Utils/componentTemplate.js'
 
 const template = componentTemplate(html, style);
 
-class MealItem extends HTMLElement {
+class PageHeader extends HTMLElement {
     constructor() {
         super();
 
@@ -13,12 +13,6 @@ class MealItem extends HTMLElement {
 
         this.shadowRoot.appendChild(template.content.cloneNode(true))
     }
-
-    connectedCallback() {
-        const imageSource = this.getAttribute("img") || "";
-
-        this.shadowRoot.getElementById("meal-image").src = imageSource
-    }
 }
 
-customElements.define("meal-item", MealItem)
+customElements.define("page-header", PageHeader)
