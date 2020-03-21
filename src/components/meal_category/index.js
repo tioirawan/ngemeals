@@ -45,7 +45,11 @@ class MealCategory extends HTMLElement {
     Object.values(this.categories.children).forEach((buttonElement) => {
       const currentButton = buttonElement;
 
-      currentButton.style.backgroundColor = currentButton.innerHTML === category ? '#ff7675' : '#636e72';
+      if (currentButton.innerHTML === category) {
+        currentButton.classList.add('selected-meal');
+      } else {
+        currentButton.classList.remove('selected-meal');
+      }
     });
   }
 }
