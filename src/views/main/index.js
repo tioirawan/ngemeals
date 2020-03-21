@@ -1,26 +1,26 @@
-import store from "Store/reducer.js";
+import store from 'Store/reducer';
 
-import html from "./template.html";
-import style from "./style.css";
+import componentTemplate from 'Utils/componentTemplate';
+import html from './template.html';
+import style from './style.css';
 
-import componentTemplate from 'Utils/componentTemplate.js'
 
 const template = componentTemplate(html, style);
 
 class MainView extends HTMLElement {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: 'open' });
 
-        this.shadowRoot.appendChild(template.content.cloneNode(true))
-    }
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+  }
 
-    connectedCallback() {
-        store.subscribe(() => {
-            this.shadowRoot.getElementById("title-category").innerText = store.getState().category
-        })
-    }
+  connectedCallback() {
+    store.subscribe(() => {
+      this.shadowRoot.getElementById('title-category').innerText = store.getState().category;
+    });
+  }
 }
 
-customElements.define("main-view", MainView)
+customElements.define('main-view', MainView);

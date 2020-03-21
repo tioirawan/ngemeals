@@ -1,52 +1,52 @@
-import store from "Store/reducer.js";
-import { setCategory } from "Store/actions.js";
+import store from 'Store/reducer';
+import actions from 'Store/actions';
 
-import html from "./template.html";
-import style from "./style.css";
+import componentTemplate from 'Utils/componentTemplate';
+import html from './template.html';
+import style from './style.css';
 
-import componentTemplate from 'Utils/componentTemplate.js'
 
 const template = componentTemplate(html, style);
 
 class MealCategory extends HTMLElement {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: 'open' });
 
-        this.shadowRoot.appendChild(template.content.cloneNode(true))
-    }
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+  }
 
-    connectedCallback() {
-        const categories = this.shadowRoot.getElementById('meal-category');
+  connectedCallback() {
+    this.categories = this.shadowRoot.getElementById('meal-category');
 
-        store.subscribe(() => {
-            this.setSelectedCategory(categories)
-        });
+    store.subscribe(this.setSelectedCategory.bind(this));
 
-        this.setSelectedCategory(categories)
-        this.setupButton(categories);
-    }
+    this.setSelectedCategory();
+    this.setupButton();
+  }
 
 
-    setupButton(categories) {
-        for (let i = 0; i < categories.children.length; i++) {
-            const btnCategory = categories.children[i];
-            const btnCategoryValue = btnCategory.innerHTML;
+  setupButton() {
+    Object.values(this.categories.children).forEach((buttonElement) => {
+      const btnCategory = buttonElement;
+      const btnCategoryValue = btnCategory.innerHTML;
 
-            btnCategory.addEventListener("click", event => {
-                store.dispatch(setCategory(btnCategoryValue))
-            });
-        }
-    }
+      btnCategory.addEventListener('click', () => {
+        store.dispatch(actions.setCategory(btnCategoryValue));
+      });
+    });
+  }
 
-    setSelectedCategory(categories) {
-        const category = store.getState().category;
+  setSelectedCategory() {
+    const { category } = store.getState();
 
-        for (let buttonElement of categories.children) {
-            buttonElement.style.backgroundColor = buttonElement.innerHTML === category ? "#ff7675" : "#636e72"
-        }
-    }
+    Object.values(this.categories.children).forEach((buttonElement) => {
+      const currentButton = buttonElement;
+
+      currentButton.style.backgroundColor = currentButton.innerHTML === category ? '#ff7675' : '#636e72';
+    });
+  }
 }
 
-customElements.define("meal-category", MealCategory)
+customElements.define('meal-category', MealCategory);

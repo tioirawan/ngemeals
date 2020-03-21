@@ -1,7 +1,7 @@
 export default function (html, css) {
-    const template = document.createElement('template');
+  const template = document.createElement('template');
 
-    template.innerHTML = `
+  template.innerHTML = `
         <style>
             *::after,
             *::before {
@@ -16,7 +16,7 @@ export default function (html, css) {
         </style>
 
         ${html}
-    `
+    `;
 
-    return template
+  return template;
 }

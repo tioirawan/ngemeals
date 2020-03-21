@@ -1,8 +1,10 @@
-import {ACTION_TYPE} from "./constants"
+import { ACTION_TYPE } from './constants';
 
-export function setCategory(category) {
+export default {
+  setCategory(category) {
     return {
-        type: ACTION_TYPE.SET_CATEGORY,
-        category
-    }
-}
+      type: ACTION_TYPE.SET_CATEGORY,
+      category,
+    };
+  },
+};

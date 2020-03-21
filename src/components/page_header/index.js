@@ -1,31 +1,31 @@
-import html from "./template.html";
-import style from "./style.css";
+import componentTemplate from 'Utils/componentTemplate';
 
-import componentTemplate from 'Utils/componentTemplate.js'
+import html from './template.html';
+import style from './style.css';
+
 
 const template = componentTemplate(html, style);
 
-class PageHeader extends HTMLElement {    
-    constructor() {
-        super();
+class PageHeader extends HTMLElement {
+  constructor() {
+    super();
 
-        this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: 'open' });
 
-        this.shadowRoot.appendChild(template.content.cloneNode(true))
-    }
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+  }
 
-    connectedCallback() {
-        window.addEventListener("scroll", () => {
-            if (window.innerWidth > 665) {
-
-                if (window.scrollY > 70) {
-                    this.shadowRoot.getElementById("page-header").classList.add("shadow")
-                } else {
-                    this.shadowRoot.getElementById("page-header").classList.remove("shadow")
-                }
-            }
-        });
-    }
+  connectedCallback() {
+    window.addEventListener('scroll', () => {
+      if (window.innerWidth > 665) {
+        if (window.scrollY > 70) {
+          this.shadowRoot.getElementById('page-header').classList.add('shadow');
+        } else {
+          this.shadowRoot.getElementById('page-header').classList.remove('shadow');
+        }
+      }
+    });
+  }
 }
 
-customElements.define("page-header", PageHeader)
+customElements.define('page-header', PageHeader);
