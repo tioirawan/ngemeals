@@ -16,8 +16,10 @@ class MealItem extends HTMLElement {
 
   connectedCallback() {
     const imageSource = this.getAttribute('img') || '';
+    const mealName = this.getAttribute('name') || '';
 
     this.shadowRoot.getElementById('meal-image').src = imageSource;
+    this.shadowRoot.getElementById('meal-name').innerText = mealName;
   }
 }
 

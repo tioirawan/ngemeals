@@ -34,6 +34,7 @@ class MealCategory extends HTMLElement {
 
       btnCategory.addEventListener('click', () => {
         store.dispatch(actions.setCategory(btnCategoryValue));
+        store.dispatch(actions.fetchMealsByCategory(btnCategoryValue));
       });
     });
   }
