@@ -27,14 +27,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: [
-          {
-            loader: 'to-string-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-        ],
+        use: ['to-string-loader', 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.html$/i,
@@ -42,9 +35,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          'file-loader',
-        ],
+        use: ['file-loader'],
       },
     ],
   },

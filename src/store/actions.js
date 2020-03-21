@@ -15,14 +15,23 @@ export default {
       meals,
     };
   },
+  setLoading(loading) {
+    return {
+      type: ACTION_TYPE.SET_LOADING,
+      loading,
+    };
+  },
 
   // THUNKS
   fetchMealsByCategory(category = null) {
     return (dispatch, getState) => {
       const mealCategory = category || getState().category;
 
+      dispatch(this.setLoading(true));
+
       Api.mealsByCategory(mealCategory).then((meals) => {
         dispatch(this.setMeals(meals));
+        dispatch(this.setLoading(false));
       });
     };
   },

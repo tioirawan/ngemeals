@@ -23,22 +23,28 @@ class MainView extends HTMLElement {
     const mealsListContainer = this.shadowRoot.querySelector('meal-masonry');
 
     store.subscribe(() => {
-      const { category, meals } = store.getState();
+      const { category, meals, isLoading } = store.getState();
 
       this.shadowRoot.getElementById('title-category').innerText = category;
 
 
       mealsListContainer.innerHTML = '';
 
-      meals.forEach((meal) => {
-        const mealElement = document.createElement('meal-item');
+      if (isLoading) {
+        this.shadowRoot.querySelector('.lds-ripple ').style.display = 'inline-block';
+      } else {
+        this.shadowRoot.querySelector('.lds-ripple ').style.display = 'none';
 
-        mealElement.setAttribute('meal-id', meal.idMeal);
-        mealElement.setAttribute('name', meal.strMeal);
-        mealElement.setAttribute('img', meal.strMealThumb);
+        meals.forEach((meal) => {
+          const mealElement = document.createElement('meal-item');
 
-        mealsListContainer.append(mealElement);
-      });
+          mealElement.setAttribute('meal-id', meal.idMeal);
+          mealElement.setAttribute('name', meal.strMeal);
+          mealElement.setAttribute('img', meal.strMealThumb);
+
+          mealsListContainer.append(mealElement);
+        });
+      }
     });
   }
 }

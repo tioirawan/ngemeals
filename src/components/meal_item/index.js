@@ -15,11 +15,24 @@ class MealItem extends HTMLElement {
   }
 
   connectedCallback() {
-    const imageSource = this.getAttribute('img') || '';
     const mealName = this.getAttribute('name') || '';
 
-    this.shadowRoot.getElementById('meal-image').src = imageSource;
     this.shadowRoot.getElementById('meal-name').innerText = mealName;
+  }
+
+  async attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'img') {
+      const imageElement = this.shadowRoot.getElementById('meal-image');
+      imageElement.src = newValue;
+
+      imageElement.addEventListener('load', () => {
+        this.shadowRoot.querySelector('.lds-ellipsis').style.display = 'none';
+      });
+    }
+  }
+
+  static get observedAttributes() {
+    return ['img'];
   }
 }
 
