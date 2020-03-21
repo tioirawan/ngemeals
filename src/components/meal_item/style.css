@@ -1,3 +1,9 @@
-meal-item {
-    color: red
+#meal-item {
+    color: red;
 }
+
+#meal-image {
+    width: 100px;
+    height: 100px;
+}
+

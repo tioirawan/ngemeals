@@ -1,16 +1,13 @@
 import html from "./template.html";
+import style from "./style.css";
 
-import "./style.css";
+import componentTemplate from 'Utils/componentTemplate.js'
 
-const template = document.createElement('template');
-
-template.innerHTML = html
+const template = componentTemplate(html, style);
 
 class MealItem extends HTMLElement {
     constructor() {
         super();
-
-        // console.log(style)
 
         this.attachShadow({ mode: 'open' });
 
@@ -20,7 +17,7 @@ class MealItem extends HTMLElement {
     connectedCallback() {
         const imageSource = this.getAttribute("img") || "";
 
-        this.shadowRoot.getElementById("meal-image").src = imageSource
+        // this.shadowRoot.getElementById("meal-image").src = imageSource
     }
 }
 

@@ -1,4 +1,5 @@
-import "./styles/main.css";
+import "Views/main"
 
+// import custom components
 import "./components/meal_item";
 

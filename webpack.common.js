@@ -31,9 +31,6 @@ module.exports = {
                         loader: 'to-string-loader',
                     },
                     {
-                        loader: "style-loader"
-                    },
-                    {
                         loader: "css-loader"
                     }
                 ]
@@ -43,6 +40,14 @@ module.exports = {
                 loader: 'html-loader',
               },
         ]
+    },
+    resolve: {
+        alias: {
+            Views: path.resolve(__dirname, 'src/views'),
+            Components: path.resolve(__dirname, 'src/components'),
+            Styles: path.resolve(__dirname, 'src/styles'),
+            Utils: path.resolve(__dirname, 'src/utils'),
+        }
     }
 }
 
