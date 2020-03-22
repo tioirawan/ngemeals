@@ -9,6 +9,12 @@ export default {
       category,
     };
   },
+  setIngredient(ingredient) {
+    return {
+      type: ACTION_TYPE.SET_INGREDIENT,
+      ingredient,
+    };
+  },
   setMeals(meals) {
     return {
       type: ACTION_TYPE.SET_MEALS,
@@ -30,6 +36,18 @@ export default {
       dispatch(this.setLoading(true));
 
       Api.mealsByCategory(mealCategory).then((meals) => {
+        dispatch(this.setMeals(meals));
+        dispatch(this.setLoading(false));
+      });
+    };
+  },
+  fetchMealsByIngredient(ingredient = null) {
+    return (dispatch, getState) => {
+      const mealIngredient = ingredient || getState().ingredient;
+
+      dispatch(this.setLoading(true));
+
+      Api.mealsByIngredient(mealIngredient).then((meals) => {
         dispatch(this.setMeals(meals));
         dispatch(this.setLoading(false));
       });

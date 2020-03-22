@@ -12,4 +12,16 @@ export default {
       return error;
     }
   },
+  async mealsByIngredient(ingredient) {
+    try {
+      const data = await fetch(`${API_ENDPOINT}/filter.php?i=${ingredient}`).then(
+        (response) => response.json(),
+      );
+
+      return data.meals;
+    } catch (error) {
+      return error;
+    }
+  },
+
 };

@@ -30,7 +30,8 @@ class MealIngredients extends HTMLElement {
       const btnIngredientValue = btnIngredient.value;
 
       btnIngredient.addEventListener('click', () => {
-        console.log(btnIngredientValue);
+        store.dispatch(actions.setIngredient(btnIngredientValue));
+        store.dispatch(actions.fetchMealsByIngredient(btnIngredientValue));
       });
     });
   }

@@ -23,9 +23,19 @@ class MainView extends HTMLElement {
     const mealsListContainer = this.shadowRoot.querySelector('meal-masonry');
 
     store.subscribe(() => {
-      const { category, meals, isLoading } = store.getState();
+      const {
+        category, ingredient, meals, isLoading,
+      } = store.getState();
 
-      this.shadowRoot.getElementById('title-category').innerText = category;
+      let title = 'Meals for you';
+
+      if (category) {
+        title = `<b>${category}</b> meals for you`;
+      } else if (ingredient) {
+        title = `Dishes with <b>${ingredient}</b>`;
+      }
+
+      this.shadowRoot.getElementById('title-category').innerHTML = title;
 
 
       mealsListContainer.innerHTML = '';
@@ -35,15 +45,18 @@ class MainView extends HTMLElement {
       } else {
         this.shadowRoot.querySelector('.lds-ripple ').style.display = 'none';
 
-        meals.forEach((meal) => {
-          const mealElement = document.createElement('meal-item');
 
-          mealElement.setAttribute('meal-id', meal.idMeal);
-          mealElement.setAttribute('name', meal.strMeal);
-          mealElement.setAttribute('img', meal.strMealThumb);
+        if (meals && meals.length) {
+          meals.forEach((meal) => {
+            const mealElement = document.createElement('meal-item');
 
-          mealsListContainer.append(mealElement);
-        });
+            mealElement.setAttribute('meal-id', meal.idMeal);
+            mealElement.setAttribute('name', meal.strMeal);
+            mealElement.setAttribute('img', meal.strMealThumb);
+
+            mealsListContainer.append(mealElement);
+          });
+        }
       }
     });
   }
