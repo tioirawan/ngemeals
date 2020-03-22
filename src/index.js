@@ -1,3 +1,5 @@
+import 'regenerator-runtime';
+
 import 'Views/main';
 
 // import custom components
