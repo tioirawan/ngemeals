@@ -4,10 +4,8 @@
     padding: 3em 1.5em;
     justify-content: space-between;
     align-items: center;
-
     background-color: white;
     z-index: 10;
-
     position: fixed;
     left: 0;
     right: 0;
@@ -28,4 +26,16 @@ h1 {
     font-size: 1.8rem;
     /* background-color: rgba(166, 173, 201, .18); */
     padding: 0.5em;
+}
+
+@media screen and (max-width: 665px) {
+    #page-header {
+        padding: 1.5em 1em;
+    }
+    h1 {
+        padding: 0;
+    }
+    search-bar {
+        display: none;
+    }
 }

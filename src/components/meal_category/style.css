@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 100%;
-    /* align-items: center; */
 }
 
 #meal-category button {
@@ -24,4 +23,11 @@
 
 .selected-meal {
     background-color: #ff7675 !important;
+}
+
+
+@media screen and (min-width: 465px) and (max-width: 665px) {
+    #meal-category {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }

@@ -2,7 +2,7 @@
     border-radius: 20px;
     box-shadow: 0 5px 10px rgba(154, 160, 185, .025), 0 15px 40px rgba(166, 173, 201, .2);
     padding: 1em;
-    background-color: rgba(166, 173, 201, .18);
+    background-color: #eff0f5;
     text-align: left;
 }
 
@@ -10,4 +10,13 @@ h3 {
     font-size: 1.5em;
     font-weight: normal;
     margin: 1rem .5rem;
+}
+
+@media screen and (max-width: 665px) {
+    #page-sidebar {
+        margin: 0 1em;
+    }
+    .ingredients {
+        display: none;
+    }
 }

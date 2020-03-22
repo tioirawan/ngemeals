@@ -3,14 +3,19 @@
     color: #2f3542;
 }
 
-h1 {
+#searchbar {
+    margin: 1em;
+    display: none;
+}
+
+#title-category {
     font-size: 3.5em;
     font-weight: lighter;
     text-align: left;
     margin: 0 1rem 2rem;
 }
 
-main { 
+main {
     max-width: 1200px;
     margin: 120px auto;
 }
@@ -21,21 +26,16 @@ main::after {
     clear: both;
 }
 
-main > #content {
+main>#content {
     float: left;
     width: 78%;
 }
 
-main > page-sidebar {
-    /* background-color: red; */
+main>page-sidebar {
     margin-top: 1.5rem;
     padding-right: 1.5rem;
     width: 22%;
     float: right;
-    /* position: absolute; */
-    
-    /* top: calc(130px + 3em + 1.5rem); 
-    right: 5vw;  */
 }
 
 #not-found {
@@ -78,5 +78,55 @@ main > page-sidebar {
         width: 72px;
         height: 72px;
         opacity: 0;
+    }
+}
+
+@media screen and (max-width: 1270px) {
+    main>#content {
+        width: 75%;
+    }
+    main>page-sidebar {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    main>#content {
+        width: 70%;
+    }
+    main>page-sidebar {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    main>#content {
+        width: 60%;
+    }
+    main>page-sidebar {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 665px) {
+    main>#content, main>page-sidebar {
+        float: none;
+        width: 100%;
+    }
+
+    main > page-sidebar {
+        display: none;
+    }
+
+    main {
+        margin: 5rem auto;
+    }
+
+    #title-category {
+        margin: 2rem 1.5rem;
+    }
+
+    #searchbar {
+        display: block;
     }
 }
