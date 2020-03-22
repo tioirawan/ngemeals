@@ -23,10 +23,12 @@ class MealItem extends HTMLElement {
   async attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'img') {
       const imageElement = this.shadowRoot.getElementById('meal-image');
+
       imageElement.src = newValue;
 
       imageElement.addEventListener('load', () => {
         this.shadowRoot.querySelector('.lds-ellipsis').style.display = 'none';
+        imageElement.style.display = 'block';
       });
     }
   }
