@@ -24,7 +24,7 @@ class MainView extends HTMLElement {
 
     store.subscribe(() => {
       const {
-        category, ingredient, meals, isLoading,
+        category, ingredient, query, meals, isLoading,
       } = store.getState();
 
       let title = 'Meals for you';
@@ -33,6 +33,12 @@ class MainView extends HTMLElement {
         title = `<b>${category}</b> meals for you`;
       } else if (ingredient) {
         title = `Dishes with <b>${ingredient}</b>`;
+      } else if (query) {
+        if (isLoading) {
+          title = `Searching for <b>${query}</b>...`;
+        } else {
+          title = `${meals && meals.length ? 'Search' : 'No'} results for <b>${query}</b>...`;
+        }
       }
 
       this.shadowRoot.getElementById('title-category').innerHTML = title;
@@ -41,22 +47,23 @@ class MainView extends HTMLElement {
       mealsListContainer.innerHTML = '';
 
       if (isLoading) {
+        this.shadowRoot.querySelector('#not-found').style.display = 'none';
         this.shadowRoot.querySelector('.lds-ripple ').style.display = 'inline-block';
-      } else {
+      } else if (meals && meals.length) {
         this.shadowRoot.querySelector('.lds-ripple ').style.display = 'none';
 
+        meals.forEach((meal) => {
+          const mealElement = document.createElement('meal-item');
 
-        if (meals && meals.length) {
-          meals.forEach((meal) => {
-            const mealElement = document.createElement('meal-item');
+          mealElement.setAttribute('meal-id', meal.idMeal);
+          mealElement.setAttribute('name', meal.strMeal);
+          mealElement.setAttribute('img', meal.strMealThumb);
 
-            mealElement.setAttribute('meal-id', meal.idMeal);
-            mealElement.setAttribute('name', meal.strMeal);
-            mealElement.setAttribute('img', meal.strMealThumb);
-
-            mealsListContainer.append(mealElement);
-          });
-        }
+          mealsListContainer.append(mealElement);
+        });
+      } else {
+        this.shadowRoot.querySelector('.lds-ripple ').style.display = 'none';
+        this.shadowRoot.querySelector('#not-found').style.display = 'block';
       }
     });
   }

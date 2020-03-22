@@ -15,6 +15,12 @@ export default {
       ingredient,
     };
   },
+  setQuery(query) {
+    return {
+      type: ACTION_TYPE.SET_QUERY,
+      query,
+    };
+  },
   setMeals(meals) {
     return {
       type: ACTION_TYPE.SET_MEALS,
@@ -48,6 +54,18 @@ export default {
       dispatch(this.setLoading(true));
 
       Api.mealsByIngredient(mealIngredient).then((meals) => {
+        dispatch(this.setMeals(meals));
+        dispatch(this.setLoading(false));
+      });
+    };
+  },
+  fetchMealsByQuery(_query = null) {
+    return (dispatch, getState) => {
+      const query = _query || getState().query;
+
+      dispatch(this.setLoading(true));
+
+      Api.searchMeals(query).then((meals) => {
         dispatch(this.setMeals(meals));
         dispatch(this.setLoading(false));
       });

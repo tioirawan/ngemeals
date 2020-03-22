@@ -38,6 +38,12 @@ main > page-sidebar {
     right: 5vw;  */
 }
 
+#not-found {
+    margin-top: 6rem;
+    display: none;
+    font-weight: normal;
+}
+
 .lds-ripple {
     margin-top: 6rem;
     display: inline-block;

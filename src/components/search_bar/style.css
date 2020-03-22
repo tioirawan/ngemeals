@@ -1,9 +1,12 @@
-#search-input,
-#search-button {
-    border: none;
-    box-shadow: 0 5px 10px rgba(154, 160, 185, .025), 0 15px 40px rgba(166, 173, 201, .2);
-    margin: 0 0.5em;
+#search-bar {
     border-radius: 99999px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(154, 160, 185, .025), 0 15px 40px rgba(166, 173, 201, .2);
+}
+
+#search-input, #search-button {
+    border: none;
+    margin: 0 0.5em;
     font-size: 1em;
 }
 
@@ -13,4 +16,12 @@
 
 #search-button {
     padding: 0.8em;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#search-button img {
+    width: 1em;
+    height: 1em;
+    opacity: 0.5;
 }
