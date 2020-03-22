@@ -1,0 +1,34 @@
+#ingredient-button {
+    height: 80px;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.overlay, ::slotted(img), .button {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .2);
+    z-index: 1;
+}
+
+.overlay {
+    z-index: 2;
+}
+
+.button {
+    cursor: pointer;
+    border: none;
+    color: rgb(243, 243, 243);
+    font-weight: bold;
+    font-size: 1.5rem;
+    z-index: 3;
+}

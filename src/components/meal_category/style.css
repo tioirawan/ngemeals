@@ -1,22 +1,20 @@
 #meal-category {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     height: 100%;
-    justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }
 
 #meal-category button {
-    margin: 0 0.5em;
-    padding: 0.7em 1em;
+    margin: 0.3em;
+    padding: 0.5em .5em;
     border: none;
     cursor: pointer;
-    box-shadow: 0 5px 10px rgba(154, 160, 185, .025), 0 15px 40px rgba(166, 173, 201, .2);
     border-radius: 99999px;
     font-size: 1em;
     color: white;
     transition: all 0.2s ease-in-out;
     font-weight: bold;
-    width: 100px;
     background-color: #636e72;
 }
  

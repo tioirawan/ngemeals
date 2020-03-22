@@ -1,0 +1,9 @@
+#meal-ingredients {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100%;
+}
+
+ingredient-button {
+    margin: .5em 0;
+}

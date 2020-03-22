@@ -10,9 +10,32 @@ h1 {
     margin: 1rem;
 }
 
-main {
+main { 
     max-width: 1200px;
     margin: 120px auto;
+}
+
+main::after {
+    display: table;
+    content: '';
+    clear: both;
+}
+
+main > #content {
+    float: left;
+    width: 78%;
+}
+
+main > page-sidebar {
+    /* background-color: red; */
+    margin-top: 1.5rem;
+    padding-right: 1.5rem;
+    width: 22%;
+    float: right;
+    /* position: absolute; */
+    
+    /* top: calc(130px + 3em + 1.5rem); 
+    right: 5vw;  */
 }
 
 .lds-ripple {
