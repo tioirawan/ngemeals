@@ -1,6 +1,7 @@
 import 'regenerator-runtime';
 
-import 'Views/main';
+import '@appnest/web-router';
+import './route';
 
 // import custom components
 import 'Components/page_header';

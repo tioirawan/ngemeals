@@ -8,7 +8,7 @@ import style from './style.css';
 
 const template = componentTemplate(html, style);
 
-class MainView extends HTMLElement {
+export default class MainView extends HTMLElement {
   constructor() {
     super();
 

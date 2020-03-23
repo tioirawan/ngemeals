@@ -3,10 +3,12 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const publicHtml = path.resolve(__dirname, 'public/index.html');
+
 module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src/index.html'),
+      template: publicHtml,
       filename: 'index.html',
       minify: {
         collapseWhitespace: true,
@@ -49,5 +51,8 @@ module.exports = {
       Utils: path.resolve(__dirname, 'src/utils'),
       Assets: path.resolve(__dirname, 'src/assets'),
     },
+  },
+  devServer: {
+    historyApiFallback: true,
   },
 };
