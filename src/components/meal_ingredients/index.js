@@ -23,7 +23,6 @@ class MealIngredients extends HTMLElement {
     this.setupButton();
   }
 
-
   setupButton() {
     Object.values(this.categories.children).forEach((buttonElement) => {
       const btnIngredient = buttonElement;

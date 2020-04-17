@@ -19,9 +19,9 @@ class PageHeader extends HTMLElement {
     window.addEventListener('scroll', () => {
       if (window.innerWidth > 665) {
         if (window.scrollY > 70) {
-          this.shadowRoot.getElementById('page-header').classList.add('shadow');
+          this.shadowRoot.getElementById('page-header').classList.add('hanging');
         } else {
-          this.shadowRoot.getElementById('page-header').classList.remove('shadow');
+          this.shadowRoot.getElementById('page-header').classList.remove('hanging');
         }
       }
     });

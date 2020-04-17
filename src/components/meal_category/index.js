@@ -15,12 +15,18 @@ class MealCategory extends HTMLElement {
     this.attachShadow({ mode: 'open' });
 
     this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+    this.unsubscribe = () => {};
+  }
+
+  disconnectedCallback() {
+    this.unsubscribe();
   }
 
   connectedCallback() {
     this.categories = this.shadowRoot.getElementById('meal-category');
 
-    store.subscribe(this.setSelectedCategory.bind(this));
+    this.unsubscribe = store.subscribe(this.setSelectedCategory.bind(this));
 
     this.setSelectedCategory();
     this.setupButton();

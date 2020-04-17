@@ -5,12 +5,13 @@ customElements.whenDefined('router-slot').then(() => {
 
   routerSlot.add([
     {
-      path: 'meals',
+      path: '/',
       component: () => require('Views/main'),
     },
     {
       path: '**',
-      redirectTo: 'meals',
+      // component: () => require('Views/main'),
+      redirectTo: '/',
     },
   ]);
 });

@@ -17,12 +17,18 @@ export default class MainView extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
 
     store.dispatch(actions.fetchMealsByCategory());
+
+    this.unsubscribe = () => {};
+  }
+
+  disconnectedCallback() {
+    this.unsubscribe();
   }
 
   connectedCallback() {
     const mealsListContainer = this.shadowRoot.querySelector('meal-masonry');
 
-    store.subscribe(() => {
+    this.unsubscribe = store.subscribe(() => {
       const {
         category, ingredient, query, meals, isLoading,
       } = store.getState();
@@ -42,7 +48,6 @@ export default class MainView extends HTMLElement {
       }
 
       this.shadowRoot.getElementById('title-category').innerHTML = title;
-
 
       mealsListContainer.innerHTML = '';
 
